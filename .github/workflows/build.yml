@@ -22,7 +22,7 @@ jobs:
           ./Solar2DBuilder.sh ./ main.lua
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: war-of-tanks-apk
           path: ./output/*.apk
