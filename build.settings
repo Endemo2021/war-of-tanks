@@ -1,0 +1,34 @@
+settings =
+{
+    orientation =
+    {
+        default = "landscapeRight",
+        supported = { "landscapeRight" },
+    },
+
+    android =
+    {
+        usesPermissions =
+        {
+            "android.permission.INTERNET",
+        },
+        useCleartextTraffic = true,
+        usesNetworkSecurityConfig = true,
+    },
+
+    iphone =
+    {
+        xcassets = "Images.xcassets",
+        plist =
+        {
+            UIStatusBarHidden = false,
+            UILaunchStoryboardName = "LaunchScreen",
+        },
+    },
+
+    excludeFiles =
+    {
+        all = { "Icon.png", "Icon-*dpi.png", "Images.xcassets" },
+        android = { "LaunchScreen.storyboardc" },
+    },
+}

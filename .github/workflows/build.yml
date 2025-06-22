@@ -1,0 +1,28 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download Solar2D Builder
+        run: |
+          wget https://github.com/coronalabs/solar2d-android/releases/latest/download/Solar2D-Android-Builder.zip
+          unzip Solar2D-Android-Builder.zip
+
+      - name: Build APK
+        run: |
+          chmod +x Solar2DBuilder.sh
+          ./Solar2DBuilder.sh ./ main.lua
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: war-of-tanks-apk
+          path: ./output/*.apk
